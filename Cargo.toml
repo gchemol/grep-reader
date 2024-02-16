@@ -1,7 +1,7 @@
 # [[file:grep-reader.note::e345323a][e345323a]]
 [package]
 name = "grep-reader"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Wenping Guo <ybyygu@gmail.com>"]
 description = "short text for crates.io"
