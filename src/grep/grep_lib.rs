@@ -5,12 +5,12 @@ use super::*;
 // [[file:../../grep-reader.note::aba05bc2][aba05bc2]]
 use ::grep::regex::{RegexMatcher, RegexMatcherBuilder};
 
-// Line oriented matches span no more than one line. The given pattern should
-// not contain a literal \n.
-fn make_matcher(pat: &str) -> Result<RegexMatcher> {
-    let matcher = RegexMatcher::new_line_matcher(&pat)?;
-    Ok(matcher)
-}
+// // Line oriented matches span no more than one line. The given pattern should
+// // not contain a literal \n.
+// fn make_matcher(pat: &str) -> Result<RegexMatcher> {
+//     let matcher = RegexMatcher::new_line_matcher(&pat)?;
+//     Ok(matcher)
+// }
 
 // Build a new matcher from a plain alternation of literals, substantially
 // faster than by joining the patterns with a | and calling build.
@@ -71,10 +71,6 @@ fn make_searcher() -> Searcher {
 /// # Parameters
 /// * max_count: exits search if max_count matches reached.
 pub fn mark_matched_positions_with_ripgrep(pattern: &str, path: &Path, max_count: Option<usize>) -> Result<Vec<u64>> {
-    use std::fs::File;
-    use std::io::prelude::*;
-    use std::io::BufReader;
-
     let max_count = max_count.unwrap_or(usize::MAX);
 
     let mut reader = BufReader::new(File::open(path)?);

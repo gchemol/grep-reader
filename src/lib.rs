@@ -8,8 +8,6 @@ mod grep;
 // 78a25f58 ends here
 
 // [[file:../grep-reader.note::6579be04][6579be04]]
-use std::path::Path;
-
 use anyhow::bail;
 use anyhow::ensure;
 use anyhow::Result;

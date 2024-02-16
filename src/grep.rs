@@ -60,12 +60,12 @@ impl GrepReader {
 
     /// Goto the start of inner file.
     pub fn goto_start(&mut self) {
-        self.reader.rewind();
+        let _ = self.reader.rewind();
     }
 
     /// Goto the end of inner file.
     pub fn goto_end(&mut self) {
-        self.reader.seek(SeekFrom::End(0));
+        let _ = self.reader.seek(SeekFrom::End(0));
     }
 
     /// Return the number of marked positions.
@@ -184,12 +184,12 @@ fn test_grep_read_until() -> Result<()> {
     reader.read_until_next_marker(&mut s)?;
     assert!(s.ends_with("          16\r\n"));
     s.clear();
-    reader.goto_next_marker();
+    reader.goto_next_marker()?;
     reader.read_until_next_marker(&mut s)?;
     assert!(s.starts_with(" Configuration number :       14"));
     assert!(s.ends_with("          16\r\n"));
     assert_eq!(reader.marker_index, 3);
-    reader.goto_marker(5);
+    reader.goto_marker(5)?;
     s.clear();
     reader.read_until_next_marker(&mut s)?;
     assert!(s.starts_with(" Configuration number :       42"));
