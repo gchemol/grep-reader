@@ -1,0 +1,21 @@
+# [[file:grep-reader.note::e345323a][e345323a]]
+[package]
+name = "grep-reader"
+version = "0.1.0"
+edition = "2021"
+authors = ["Wenping Guo <ybyygu@gmail.com>"]
+description = "short text for crates.io"
+license = "MIT OR Apache-2.0"
+homepage = "https://github.com/gchemol/grep-reader"
+repository = "https://github.com/gchemol/grep-reader"
+
+[dependencies]
+grep = "0.3"
+
+# workspace independent
+[workspace]
+
+[features]
+# for adhoc hacking
+adhoc = []
+# e345323a ends here
