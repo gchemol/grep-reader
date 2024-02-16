@@ -11,6 +11,8 @@ repository = "https://github.com/gchemol/grep-reader"
 
 [dependencies]
 grep = "0.3"
+anyhow = "1.0.79"
+# serde_json = "1.0.113"
 
 # workspace independent
 [workspace]
